@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 
-const url = process.env.MONGO_URL ;
+const url = 'http://localhost:5000' ;
 
 
 let gfs, gridfsBucket;
