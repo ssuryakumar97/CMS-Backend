@@ -1,11 +1,8 @@
 const grid =require('gridfs-stream');
 const mongoose = require('mongoose');
-const {connect, connection} = require('mongoose');
-const dotenv = require('dotenv');
-dotenv.config();
 
 
-const url = 'http://localhost:5000' ;
+const url = 'https://cms-backend-gy29.onrender.com' ;
 
 
 let gfs, gridfsBucket;
