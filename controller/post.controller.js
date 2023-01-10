@@ -27,7 +27,6 @@ module.exports.getAllPosts = async (req, res) => {
     } catch (err) {
         return res.status(500).json({ msg: err.message })
     }
-
 }
 
 module.exports.getPost = async(req,res) => {

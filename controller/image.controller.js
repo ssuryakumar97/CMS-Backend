@@ -2,7 +2,7 @@ const grid =require('gridfs-stream');
 const mongoose = require('mongoose');
 
 
-const url = 'https://cms-backend-gy29.onrender.com' ;
+const url = 'http://localhost:5000' ;
 
 
 let gfs, gridfsBucket;
@@ -28,6 +28,7 @@ module.exports.uploadImage = (req, res) => {
 module.exports.getImage = async(req, res) => {
 try {
     const file = await gfs.files.findOne({filename: req.params.filename });
+    console.log(req.params)
     const readStream = gridfsBucket.openDownloadStream(file._id);
     readStream.pipe(res);
 } catch(err) {
