@@ -2,7 +2,8 @@ const grid =require('gridfs-stream');
 const mongoose = require('mongoose');
 
 
-const url = 'http://localhost:5000' ;
+// const url = 'http://localhost:5000' ;
+const url = 'https://papaya-tiramisu-fa9ec4.netlify.app';
 
 
 let gfs, gridfsBucket;
