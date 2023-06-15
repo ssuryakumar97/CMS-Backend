@@ -15,6 +15,10 @@ dotenv.config();
 
 router.post('/signUp', async(req, res)=>{
     try{
+        const oldUser =await User.findOne({username: req.body.username})
+        if(oldUser){
+            res.send({message:"User already exists"})
+        } else {
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(req.body.password, salt)
         const payload = {username: req.body.username, emailId: req.body.emailId, password: hashedPassword};
@@ -24,8 +28,9 @@ router.post('/signUp', async(req, res)=>{
                 return res.status(400).send({message : `${err} please check the data`})
             }
             res.status(201).send({message:`${data._id} data successfully added `});
-
         })
+        }
+        
     } catch(err) {
         res.status(500).send({message : err})
     }
